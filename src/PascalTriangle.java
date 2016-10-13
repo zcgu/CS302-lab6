@@ -6,6 +6,8 @@
 // Email:            zhichenggu@cs.wisc.edu
 /////////////////////////////// 80 COLUMNS WIDE ///////////////////////////////
 
+import java.util.Arrays;
+
 /**
  * This class is used to print first five rows of Pascal's Triangle.
  * The output of this class(without bugs) should be:
@@ -30,7 +32,7 @@ public class PascalTriangle {
 	 * @param args : not used.
 	 */
 	public static void main(String[] args) {
-		int[] nums = new int[6];	// Array stores numbers on each level.
+		int[] nums = new int[5];	// Array stores numbers on each level.
 		
 		nums[0] = 1;
 		
@@ -41,12 +43,7 @@ public class PascalTriangle {
 			}
 			
 /*			TODO: Part 1. Use print to help you debug.	*/
-			
-//			System.out.print("Current level: " + level + " Numbers: ");
-//			for (int i = 0; i < 5; i++) {
-//				System.out.print(nums[i]);
-//			}
-//			System.out.println();
+//			System.out.println("Main method, nums: " + Arrays.toString(nums));
 			
 			printOneLevel(nums, level);
 		}
@@ -78,10 +75,9 @@ public class PascalTriangle {
 	 * @param nums : Array stores numbers.
 	 * @param level : The current level.
 	 */
-	private static void getNextLevel(int[] nums, int level) {
-		int nextLevel = level + 1;	// Next level.
-		
-		int[] nextNums = new int[6];  // Array stores numbers on next level.
+	private static void getNextLevel(int[] nums, int nextLevel) {
+
+		int[] nextNums = new int[5];  // Array stores numbers on next level.
 		
 		nextNums[0] = nums[0];
 		
@@ -92,15 +88,10 @@ public class PascalTriangle {
 			nextNums[i] = nums[i - 1] + nums[i];
 		}
 		
-		nextNums[nextLevel - 1] = nums[level - 1];
+		nextNums[nextLevel - 1] = nums[nextLevel - 2];
 		
 /*		TODO: Part 2. Use print to help you debug.	*/
-		
-//		System.out.print("Next level: " + level + " Numbers: ");
-//		for (int i = 0; i < 5; i++) {
-//			System.out.print(nextNums[i]);
-//		}
-//		System.out.println();
+//		System.out.println("getNextLevel method, nextNums: " + Arrays.toString(nextNums));
 		
 		nums = nextNums;
 	}
