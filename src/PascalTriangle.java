@@ -39,7 +39,7 @@ public class PascalTriangle {
 		// Get and print the numbers on each level.
 		for (int level = 1; level <= 5; level++) {
 			if (level > 1) {
-				getNextLevel(nums, level);
+				nums = getNextLevel(nums, level);
 			}
 			
 /*			TODO: Part 1. Use print to help you debug.	*/
@@ -75,7 +75,7 @@ public class PascalTriangle {
 	 * @param nums : Array stores numbers.
 	 * @param level : The current level.
 	 */
-	private static void getNextLevel(int[] nums, int nextLevel) {
+	private static int[] getNextLevel(int[] nums, int nextLevel) {
 
 		int[] nextNums = new int[5];  // Array stores numbers on next level.
 		
@@ -93,7 +93,7 @@ public class PascalTriangle {
 /*		TODO: Part 2. Use print to help you debug.	*/
 //		System.out.println("getNextLevel method, nextNums: " + Arrays.toString(nextNums));
 		
-		nums = nextNums;
+		return nextNums;
 	}
 
 }
